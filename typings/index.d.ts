@@ -322,7 +322,7 @@ declare module "tough-cookie" {
   }
 }
 
-declare module "@distube/ytdl-core" {
+declare module "@nuclearplayer/ytdl-core" {
   import { Dispatcher, ProxyAgent, request } from "undici";
   import { Cookie as CK, CookieJar } from "tough-cookie";
   import { CookieAgent } from "http-cookie-agent/undici";

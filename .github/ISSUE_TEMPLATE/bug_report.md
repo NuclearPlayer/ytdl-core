@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a bug found in @distube/ytdl-core
+about: Report a bug found in @nuclearplayer/ytdl-core
 title: ""
 labels: bug
 assignees: ""
@@ -12,6 +12,6 @@ assignees: ""
 
 ## Environment
 
-- @distube/ytdl-core version:
+- @nuclearplayer/ytdl-core version:
 - Node.js version:
 - Operating system:

@@ -1,28 +1,24 @@
-# @distube/ytdl-core
+# @NuclearPlayer/ytdl-core
 
-> [!IMPORTANT]
-> [@distube/youtube](https://github.com/distubejs/extractor-plugins) depends on [youtubei.js](https://github.com/LuanRT/YouTube.js) from now on.\
-> This fork will be no longer maintained. Please use alternatives instead.
-
-DisTube fork of `ytdl-core`. This fork is dedicated to fixing bugs and adding features that are not merged into the original repo as soon as possible.
+Nuclear Player fork of `ytdl-core`. This fork is dedicated to fixing bugs and adding features that are not merged into the original repo as soon as possible.
 
 <a href='https://ko-fi.com/skick' target='_blank'><img height='48' src='https://storage.ko-fi.com/cdn/kofi3.png' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 ## Installation
 
 ```bash
-npm install @distube/ytdl-core@latest
+npm install @nuclearplayer/ytdl-core@latest
 ```
 
-Make sure you're installing the latest version of `@distube/ytdl-core` to keep up with the latest fixes.
+Make sure you're installing the latest version of `@nuclearplayer/ytdl-core` to keep up with the latest fixes.
 
 ## Usage
 
 ```js
-const ytdl = require("@distube/ytdl-core");
-// TypeScript: import ytdl from '@distube/ytdl-core'; with --esModuleInterop
-// TypeScript: import * as ytdl from '@distube/ytdl-core'; with --allowSyntheticDefaultImports
-// TypeScript: import ytdl = require('@distube/ytdl-core'); with neither of the above
+const ytdl = require("@nuclearplayer/ytdl-core");
+// TypeScript: import ytdl from '@nuclearplayer/ytdl-core'; with --esModuleInterop
+// TypeScript: import * as ytdl from '@nuclearplayer/ytdl-core'; with --allowSyntheticDefaultImports
+// TypeScript: import ytdl = require('@nuclearplayer/ytdl-core'); with neither of the above
 
 // Download a video
 ytdl("http://www.youtube.com/watch?v=aqz-KE-bpKQ").pipe(require("fs").createWriteStream("video.mp4"));
@@ -41,7 +37,7 @@ ytdl.getInfo("http://www.youtube.com/watch?v=aqz-KE-bpKQ").then(info => {
 ### Cookies Support
 
 ```js
-const ytdl = require("@distube/ytdl-core");
+const ytdl = require("@nuclearplayer/ytdl-core");
 
 // (Optional) Below are examples, NOT the recommended options
 const cookies = [
@@ -84,7 +80,7 @@ ytdl.getInfo("http://www.youtube.com/watch?v=aqz-KE-bpKQ", { agent });
 > Make sure your account, which logged in when you getting your cookies, use 1 IP at the same time only. It will make your cookies alive longer.
 
 ```js
-const ytdl = require("@distube/ytdl-core");
+const ytdl = require("@nuclearplayer/ytdl-core");
 const agent = ytdl.createAgent([
   {
     domain: ".youtube.com",
@@ -107,7 +103,7 @@ const agent = ytdl.createAgent([
 - Or you can paste your cookies array into a file and use `fs.readFileSync` to read it.
 
 ```js
-const ytdl = require("@distube/ytdl-core");
+const ytdl = require("@nuclearplayer/ytdl-core");
 const fs = require("fs");
 const agent = ytdl.createAgent(JSON.parse(fs.readFileSync("cookies.json")));
 ```
@@ -115,7 +111,7 @@ const agent = ytdl.createAgent(JSON.parse(fs.readFileSync("cookies.json")));
 ### Proxy Support
 
 ```js
-const ytdl = require("@distube/ytdl-core");
+const ytdl = require("@nuclearplayer/ytdl-core");
 
 const agent = ytdl.createProxyAgent({ uri: "my.proxy.server" });
 
@@ -126,7 +122,7 @@ ytdl.getInfo("http://www.youtube.com/watch?v=aqz-KE-bpKQ", { agent });
 Use both proxy and cookies:
 
 ```js
-const ytdl = require("@distube/ytdl-core");
+const ytdl = require("@nuclearplayer/ytdl-core");
 
 const agent = ytdl.createProxyAgent({ uri: "my.proxy.server" }, [{ name: "cookie", value: "COOKIE_HERE" }]);
 
@@ -142,8 +138,8 @@ To implement IP rotation, you need to assign the desired IP address to the `loca
 Therefore, you'll need to use a different `ytdl.Agent` for each IP address you want to use.
 
 ```js
-const ytdl = require("@distube/ytdl-core");
-const { getRandomIPv6 } = require("@distube/ytdl-core/lib/utils");
+const ytdl = require("@nuclearplayer/ytdl-core");
+const { getRandomIPv6 } = require("@nuclearplayer/ytdl-core/lib/utils");
 
 const agentForARandomIP = ytdl.createAgent(undefined, {
   localAddress: getRandomIPv6("2001:2::/48"),
@@ -165,7 +161,7 @@ You can find the API documentation in the [original repo](https://github.com/fen
 ### `ytdl.getInfoOptions`
 
 - `requestOptions` is now `undici`'s [`RequestOptions`](https://github.com/nodejs/undici#undicirequesturl-options-promise).
-- `agent`: [`ytdl.Agent`](https://github.com/distubejs/ytdl-core/blob/master/typings/index.d.ts#L10-L14)
+- `agent`: [`ytdl.Agent`](https://github.com/NuclearPlayer/ytdl-core/blob/master/typings/index.d.ts#L10-L14)
 - `playerClients`: An array of player clients to use. Accepts `WEB`, `WEB_EMBEDDED`, `TV`, `IOS`, and `ANDROID`. Defaults to `["WEB_EMBEDDED", "IOS", "ANDROID","TV"]`.
 - `fetch`: Custom fetch implementation. Defaults to `undici`'s request.
 
@@ -179,7 +175,7 @@ You can find the API documentation in the [original repo](https://github.com/fen
 
 #### How to implement `ytdl.Agent` with your own Dispatcher
 
-You can find the example [here](https://github.com/distubejs/ytdl-core/blob/master/lib/cookie.js#L73-L86)
+You can find the example [here](https://github.com/NuclearPlayer/ytdl-core/blob/master/lib/cookie.js#L73-L86)
 
 ## Limitations
 
@@ -197,7 +193,7 @@ Generated download links are valid for 6 hours, and may only be downloadable fro
 
 When doing too many requests YouTube might block. This will result in your requests getting denied with HTTP-StatusCode 429. The following steps might help you:
 
-- Update `@distube/ytdl-core` to the latest version
+- Update `@nuclearplayer/ytdl-core` to the latest version
 - Use proxies (you can find an example [here](#proxy-support))
 - Extend the Proxy Idea by rotating (IPv6-)Addresses
   - read [this](https://github.com/fent/node-ytdl-core#how-does-using-an-ipv6-block-help) for more information about this

@@ -1,18 +1,20 @@
 {
-  "name": "@distube/ytdl-core",
-  "description": "DisTube fork of ytdl-core. YouTube video downloader in pure javascript.",
+  "name": "@nuclearplayer/ytdl-core",
+  "description": "Nuclear fork of ytdl-core. YouTube video downloader in pure javascript.",
   "keywords": [
     "youtube",
     "video",
     "download",
-    "distube"
+    "nuclear"
   ],
   "version": "4.16.9",
   "repository": {
     "type": "git",
-    "url": "git://github.com/distubejs/ytdl-core.git"
+    "url": "git://github.com/NuclearPlayer/ytdl-core.git"
   },
-  "author": "Skick (https://github.com/skick1234)",
+  "author": {
+    "name": "nukeop <12746779+nukeop@users.noreply.github.com>"
+  },
   "contributors": [
     "fent <fentbox@gmail.com> (https://github.com/fent)",
     "Tobias Kutscha (https://github.com/TimeForANinja)",
@@ -50,5 +52,5 @@
     "node": ">=20.18.1"
   },
   "license": "MIT",
-  "funding": "https://github.com/distubejs/ytdl-core?sponsor"
+  "funding": "https://github.com/sponsors/nukeop"
 }
